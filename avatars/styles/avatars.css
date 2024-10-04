@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.avatars-list {
+  display: flex;
+  flex-flow: row wrap-reverse;
+  overflow: hidden;
+  max-width: 336px;
+  margin: 100px auto;
+}
+.avatar-item {
+  float: left;
+  padding: 10px;
+}
+.avatar-item img {
+  border-radius: 50%;
+  vertical-align: top;
+}
+.avatar-item .avatar-state {
+  position: relative;
+  left: 48px;
+  width: 14px;
+  height: 14px;
+  margin-top: -16px;
+  border: 1px solid #fff;
+  background-color: #dbd9db;
+  font-size: 0;
+  border-radius: 50%;
+  z-index: 1;
+}
+.avatar-item .avatar-state.online {
+  background-color: #4aff86;
+}
