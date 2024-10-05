@@ -4,14 +4,37 @@
   margin: 0;
   padding: 0;
 }
+ul,
+li {
+  list-style: none;
+}
+.avatars-wrap {
+  max-width: 538px;
+  margin: auto;
+  padding-top: 100px;
+}
+.area-title {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.25rem;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: capitalize;
+  border-radius: 3px;
+  vertical-align: top;
+}
 .avatars-list {
   display: flex;
   flex-flow: row wrap-reverse;
   overflow: hidden;
-  max-width: 336px;
-  margin: 100px auto;
+  padding: 100px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-sizing: initial;
 }
 .avatar-item {
+  position: relative;
   float: left;
   padding: 10px;
 }
@@ -20,17 +43,18 @@
   vertical-align: top;
 }
 .avatar-item .avatar-state {
-  position: relative;
-  left: 48px;
+  display: block;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
   width: 14px;
   height: 14px;
-  margin-top: -16px;
   border: 1px solid #fff;
-  background-color: #dbd9db;
+  background-color: #dbdbdb;
   font-size: 0;
   border-radius: 50%;
   z-index: 1;
 }
 .avatar-item .avatar-state.online {
-  background-color: #4aff86;
+  background-color: #4cfe88;
 }
