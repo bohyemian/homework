@@ -14,22 +14,24 @@
 
       <form action="">
         <label for="" class="input-label">
-          <input type="text" class="input-block" placeholder="아이디" name="userId" required />
+          <input type="email" class="input-block" placeholder="아이디" name="userId" required />
           <strong class="invalid-txt">아이디는 이메일을 입력해 주세요</strong>
         </label>
         <label for="" class="input-label">
-          <input type="password" class="input-block" placeholder="패스워드" name="userPw" required />
+          <input type="password" class="input-block" placeholder="패스워드" name="userPw" minlength="10" required />
           <strong class="invalid-txt">비밀번호는 10자리 이상 입력해 주세요</strong>
         </label>
-        <button type="submit">로그인</button>
+        <div class="btn-wrap">
+          <button type="submit" class="btn primary">로그인</button>
+        </div>
         <div class="form-option">
-          <label for="" class="input-check-label">
-            <input type="checkbox" name="keepLogin" />
+          <label for="keepLogin" class="input-check-label">
+            <input type="checkbox" id="keepLogin" name="keepLogin" />
             <span>로그인 상태 유지</span>
           </label>
-          <a href="#" class="txt-link mo-only" target="_blank" aria-haspopup="true">IP 보안</a>
-          <label for="" class="input-switch mo-only">
-            <input type="checkbox" />
+          <a href="#" class="txt-link mobile-hidden" target="_blank" aria-haspopup="true">IP 보안</a>
+          <label for="" class="input-switch mobile-hidden">
+            <input type="checkbox" class="input-switch__button" name="ipSecurity" />
             <strong>ON</strong>
             <span>OFF</span>
           </label>
