@@ -31,7 +31,7 @@
   margin: 0;
   box-sizing: border-box;
   &:focus-visible {
-    outline: 1px solid var(--focus-border-color);
+    outline-color: var(--focus-border-color);
   }
 }
 
