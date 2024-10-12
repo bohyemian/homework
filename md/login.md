@@ -1,6 +1,13 @@
 # [login](../login/login.html)🔗
 
-## 구조
+🏷️ **개요**
+
+1. [HTML 구조](#HTML-구조)
+1. [CSS 스타일링](#CSS-스타일링)
+1. [결과 화면](#결과-화면)
+1. [마치며](#마치며)
+
+## HTML 구조
 
 ```html
 <section class="login">
@@ -59,7 +66,7 @@ submit 버튼을 로그인 상태 유지, IP 보안 스위치 버튼 다음으�
 
 IP 보안 링크는 새창으로 띄우기 위해 `target="_blank"` 속성과 새창으로 뜨는 것을 알 수 있도록 `aria-haspopup="true"` 속성을 주었습니다.
 
-## 스타일링
+## CSS 스타일링
 
 form 요소의 기본 agent style을 확인하기 위해 reset/nomalize css를 불러오지 않았습니다.
 
@@ -124,4 +131,6 @@ checkbox의
 
 ## 마치며
 
-input의 type을 구체적으로 지정하면 **Client-side form validation**로 어느 정도 검증을 거칠 수 있기 때문에 스크립트로 구현하던
+input의 type을 구체적으로 지정하면 **Client-side form validation**로 어느 정도 검증을 거칠 수 있기 때문에 스크립트로 구현하던 수고로움을 조금은 덜 수 있다고 합니다. 나중에 데이터를 다루게 되면 더 크게 와닿을 것 같습니다. 🙂
+
+(그리고 혹시나 누군가 이 코드들을 가지고 악용하는 일이 생길까 싶어서 로고 svg에서 컬러값을 조금 변경했습니다. 🥺)
