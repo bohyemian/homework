@@ -14,12 +14,12 @@
 
       <form action="" method="post">
         <label for="" class="input-label">
-          <input type="email" class="input-block" placeholder="아이디" name="userId" required />
-          <strong class="invalid-txt">아이디는 이메일을 입력해 주세요</strong>
+          <input type="email" class="input-block" placeholder="아이디" name="userId" aria-invalid="true" aria-required="true" required />
+          <strong class="invalid-txt" aria-live="polite">아이디는 이메일을 입력해 주세요</strong>
         </label>
         <label for="" class="input-label">
-          <input type="password" class="input-block" placeholder="패스워드" name="userPw" minlength="10" required />
-          <strong class="invalid-txt">비밀번호는 10자리 이상 입력해 주세요</strong>
+          <input type="password" class="input-block" placeholder="패스워드" name="userPw" minlength="10" aria-invalid="true" aria-required="true" required />
+          <strong class="invalid-txt" aria-live="polite">비밀번호는 10자리 이상 입력해 주세요</strong>
         </label>
         <div class="btn-wrap">
           <button type="submit" class="btn primary">로그인</button>
@@ -41,6 +41,7 @@
     <details class="component">
       <summary>컴포넌트</summary>
       <div class="component-details">
+        <input type="checkbox" />
         <strong class="component__title">로고</strong>
         <span class="component__desc">링크가 있는 로고</span>
         <span class="logo">
@@ -53,8 +54,8 @@
 
         <strong class="component__title">텍스트 필드</strong>
         <label for="" class="input-label">
-          <input type="email" class="input-block" placeholder="아이디" name="userId" required />
-          <strong class="invalid-txt">아이디는 이메일을 입력해 주세요</strong>
+          <input type="email" class="input-block" placeholder="아이디" name="userId" aria-invalid="true" aria-required="true" required />
+          <strong class="invalid-txt" aria-live="polite">아이디는 이메일을 입력해 주세요</strong>
         </label>
 
         <strong class="component__title">버튼</strong>

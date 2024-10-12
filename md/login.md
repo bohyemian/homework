@@ -65,30 +65,63 @@ form 요소의 기본 agent style을 확인하기 위해 reset/nomalize css를 �
 
 form 요소는 재사용이 빈번하므로 선택자를 nesting 하여 작성하지 않고 독립적으로 사용할 수 있도록 컴포넌트와 레이아웃의 css를 분리하였습니다.
 
-### 미디어쿼리
+### 🔎 미디어쿼리
 
 로고와 로고의 상하단 여백 외에는 모바일과 데스크탑의 사이즈가 동일하여, 크기가 달라지는 요소 내에 미디어쿼리를 작성하였습니다.
 
 데스크탑에서만 보이는 요소가 있기 때문에 `mobile-hidden` 클래스로 분기하여 모바일에서는 안보이도록 했습니다.
 
-### 버튼 컴포넌트
+### 🔎 [Client-side form validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation)
+
+**validation css selector** 키워드로 `:invalid` 속성이 있다는 것을 찾았습니다.
+
+`:invalid` 선택자만 넣으니 입력하기 전에도 에러메세지가 노출되어 수정이 필요했습니다.
+키워드로 찾으면 좋아겠지만, 결국 누군가 예시로 만든 페이지에서 [`:placeholder-shown`](https://caniuse.com/css-placeholder-shown) 선택자를 찾았습니다. 🙃
+
+`:invalid:not(:placeholder-shown)` 선택자로 값이 유효하지 않고 placeholder가 보이지 않을 때 에러메세지가 노출되도록 했고, 스크린리더가 검증에 대한 메세지를 읽을 수 있도록 `aria-live="polite"` 속성을 주었습니다.
+
+#### form 관련 aria 속성
+
+- [aria-invalid](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-invalid)
+- [aria-required](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-required)
+
+![submit 클릭 시 에러메세지 노출](https://seulbinim.github.io/html-css/src/assets/naver/error.gif)
+
+CSS만으로 입력 필드가 빈값인 상태에서 로그인 버튼 클릭 시 에러메세지가 노출되는 것은 구현하지 못했습니다. 😭
+
+### 🔎 버튼 컴포넌트
 
 스타일 확장이 용이하도록 `btn`과 `primary` 클래스를 따로 주어 primary 클래스가 없어도 기본적으로 버튼 스타일이 유지되도록 했습니다.
 
-### ::placeholder
+### 🔎 input style
 
-input의 placeholder 선택자
-
-### :focus-visible
-
-키보드 조작 시 포커스 선택자
+`::placeholder`, `:focus-visible` 가상 선택자로 placeholder와 키보드 조작 시 요소에 포커스가 되었을 때 스타일을 설정해 주었습니다.
 
 `:focus`와 차이를 보니 `:focus`는 클릭을 할 때에도 outline이 생기는 것을 확인하였습니다.
 
-### :checked
+### 🔎 checkobx & switch style
 
 checkbox의 checked 유무 스타일링을 위해 `:checked` 가상선택자를 사용했습니다.
+checkbox의
 
 ### ❓궁금증
 
 로고와 체크박스 아이콘 이미지는 svg 코드를 css로 변환하여 사용했는데, 파일로 불러오는 것과 성능 차이가 있는지 찾아봐야 할 것 같습니다.
+
+## 결과화면
+
+### 크롬
+
+![크롬](./images/login/chrome.webp)
+
+### 파이어폭스
+
+![파이어폭스](./images/login/firefox.webp)
+
+### 모바일 safari
+
+![모바일 safari](./images/login/mobile_safari.webp)
+
+## 마치며
+
+input의 type을 구체적으로 지정하면 **Client-side form validation**로 어느 정도 검증을 거칠 수 있기 때문에 스크립트로 구현하던
