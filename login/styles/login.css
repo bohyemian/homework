@@ -98,9 +98,17 @@ button {
       border-color: var(--focus-border-color);
       outline: 0;
     }
+    &:invalid:not(:placeholder-shown) {
+      & + .invalid-txt {
+        display: block;
+      }
+    }
   }
   .invalid-txt {
     display: none;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--warning-text-color);
   }
 }
 
