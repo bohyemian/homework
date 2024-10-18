@@ -1,2 +1,6 @@
 # apple 제품 카드
-그리드를 사용하여 구현하고 구현 결과를 움직이는 이미지로 생성하여 삽입해주세요.
+
+🍎Apple grid [바로가기](../apple/apple.html)
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-webkit-device-pixel-ratio
+https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution
