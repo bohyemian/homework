@@ -1,0 +1,101 @@
+@import "reset.css";
+@import "base.css";
+@import "theme.css";
+
+/* 카드 컴포넌트 */
+.card {
+  --card-block-start-spacing: var(--large-spacing);
+  --txt-block-start-gap: var(--small-spacing);
+  --txt-block-end-gap: var(--x-small-spacing);
+  --title-font-size: var(--large-text);
+  --sub-title-font-size: var(--base-text);
+  --description-font-size: var(--small-text);
+  --btn-column-gap: var(--base-spacing);
+  --animation-timing: .2s;
+
+  block-size: var(--size);
+  padding-block-start: var(--card-block-start-spacing);
+  color: var(--black);
+  text-align: center;
+  transition: padding var(--animation-timing);
+
+  .card__title {
+    font-size: var(--title-font-size);
+    font-weight: 900;
+    letter-spacing: -.05em;
+    transition: font var(--animation-timing);
+  }
+
+  .card__sub-title {
+    padding-block-start: var(--txt-block-start-gap);
+    padding-block-end: var(--txt-block-end-gap);
+    font-size: var(--sub-title-font-size);
+    line-height: var(--line-normal);
+    transition: font var(--animation-timing);
+  }
+
+  .card__sub-title-txt {
+    display: block;
+    padding-inline: .25rem;
+  }
+
+  .card__description {
+    padding-block-end: var(--txt-block-start-gap);
+    font-size: var(--description-font-size);
+  }
+
+  .card__btns {
+    display: flex;
+    justify-content: center;
+    column-gap: var(--btn-column-gap);
+  }
+
+  @media (width >= 1024px) {
+    --txt-block-end-gap: var(--x-small-text);
+    --title-font-size: var(--extra-large-text);
+    --card-block-start-spacing: var(--extra-large-spacing);
+    --sub-title-font-size: var(--medium-text);
+
+    .card__sub-title-txt {
+      display: inline;
+    }
+  }
+}
+
+/* 버튼 컴포넌트 */
+.btn {
+  --inner-inline-padding: var(--small-spacing);
+  --inner-block-padding: var(--x-small-spacing);
+  --font-size: var(--xx-small-text);
+  --border-color: transparent;
+  --bg-color: transparent;
+  --btn-txt-color: inherit;
+
+  padding-inline: var(--inner-inline-padding);
+  padding-block: var(--inner-block-padding);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  font-size: var(--font-size);
+  line-height: 1.2;
+  color: var(--btn-txt-color);
+  border-radius: calc((var(--inner-block-padding) * 2) + var(--font-size));
+  transition: padding var(--animation-timing), font var(--animation-timing);
+
+  &.bg-type {
+    &.blue {
+      --bg-color: var(--blue-300);
+      --btn-txt-color: var(--white);
+    }
+  }
+  &.line-type {
+    --border-color: currentColor;
+
+    &.blue {
+      --btn-txt-color: var(--blue-300);
+    }
+  }
+
+  @media (width >= 1024px) {
+    --font-size: var(--x-small-text);
+  }
+}
