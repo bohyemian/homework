@@ -1,3 +1,22 @@
 @import url(card-component.css);
 
 /* 카드 레이아웃 */
+.card-products {
+  display: grid;
+  grid-template-columns: [cell-span-start cell-odd-start] 1fr [cell-odd-end cell-even-start] 1fr [cell-even-end cell-span-end];
+  gap: var(--base-spacing);
+
+  .card {
+    grid-column: cell-span;
+  }
+
+  @media (width >= 1024px) {
+    .grid-item-odd {
+      grid-column: cell-odd;
+    }
+
+    .grid-item-even {
+      grid-column: cell-even;
+    }
+  }
+}
