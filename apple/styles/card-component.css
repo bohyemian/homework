@@ -25,14 +25,16 @@
   transition: padding var(--animation-timing);
 
   .card__title {
+    display: block;
+    padding-block-end: var(--txt-block-start-gap);
     font-size: var(--title-font-size);
     font-weight: 900;
+    line-height: 1;
     letter-spacing: -.05em;
     transition: font var(--animation-timing);
   }
 
   .card__sub-title {
-    padding-block-start: var(--txt-block-start-gap);
     padding-block-end: var(--txt-block-end-gap);
     font-size: var(--sub-title-font-size);
     line-height: var(--line-normal);
@@ -41,7 +43,6 @@
 
   .card__sub-title-txt {
     display: block;
-    padding-inline: .25rem;
   }
 
   .card__description {
@@ -56,9 +57,8 @@
   }
 
   @media (width >= 1024px) {
-    --txt-block-end-gap: var(--x-small-text);
-    --title-font-size: var(--extra-large-text);
     --card-block-start-spacing: var(--extra-large-spacing);
+    --title-font-size: var(--extra-large-text);
     --sub-title-font-size: var(--medium-text);
 
     .card__sub-title-txt {
@@ -66,9 +66,27 @@
     }
   }
 
-  &.dark {
+  &.dark,
+  &:nth-of-type(odd) {
     --txt-color: var(--white);
     background-color: #000;
+
+    .btn{
+      &.bg-type {
+        --bg-color: var(--blue-300);
+      }
+      &.line-type {
+        --btn-txt-color: var(--blue-300);
+      }
+    }
+  }
+
+  &:nth-of-type(even) {
+    .btn{
+      &.bg-type {
+        --bg-color: var(--black);
+      }
+    }
   }
 
   /* producet background image */
