@@ -10,12 +10,17 @@
   --title-font-size: var(--large-text);
   --sub-title-font-size: var(--base-text);
   --description-font-size: var(--small-text);
+  --txt-color: var(--black);
   --btn-column-gap: var(--base-spacing);
   --animation-timing: .2s;
 
   block-size: var(--size);
   padding-block-start: var(--card-block-start-spacing);
-  color: var(--black);
+  background-image: var(--bg-image);
+  background-position: 50% 100%;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  color: var(--txt-color);
   text-align: center;
   transition: padding var(--animation-timing);
 
@@ -60,6 +65,59 @@
       display: inline;
     }
   }
+
+  &.dark {
+    --txt-color: var(--white);
+    background-color: #000;
+  }
+
+  /* producet background image */
+  @media (max-resolution: 1dppx) {
+    &.iPad-pro {
+      --bg-image: url(../products/ipad_pro.jpeg);
+    }
+    &.iPad-air {
+      --bg-image: url(../products/ipad_air_wide.jpeg);
+    }
+    &.iPhone15pro {
+      --bg-image: url(../products/iphone15_pro_wide.jpeg);
+    }
+    &.iPhone15 {
+      --bg-image: url(../products/iphone15.jpeg);
+    }
+    &.watch {
+      --bg-image: url(../products/apple_watch.jpeg);
+    }
+    &.macBook-air {
+      --bg-image: url(../products/macbook_air.jpeg);
+    }
+    &.airPods-pro {
+      --bg-image: url(../products/airpods_pro.jpeg);
+    }
+  }
+  @media (min-resolution: 2dppx) {
+    &.iPad-pro {
+      --bg-image: url(../products/ipad_pro_2x.jpeg);
+    }
+    &.iPad-air {
+    --bg-image: url(../products/ipad_air_wide_2x.jpeg);
+    }
+    &.iPhone15pro {
+      --bg-image: url(../products/iphone15_pro_wide_2x.jpeg);
+    }
+    &.iPhone15 {
+      --bg-image: url(../products/iphone15_2x.jpeg);
+    }
+    &.watch {
+      --bg-image: url(../products/apple_watch_2x.jpeg);
+    }
+    &.macBook-air {
+      --bg-image: url(../products/macbook_air_2x.jpeg);
+    }
+    &.airPods-pro {
+      --bg-image: url(../products/airpods_pro.jpeg);
+    }
+  }
 }
 
 /* 버튼 컴포넌트 */
@@ -82,9 +140,13 @@
   transition: padding var(--animation-timing), font var(--animation-timing);
 
   &.bg-type {
+    --btn-txt-color: #fff;
+
     &.blue {
       --bg-color: var(--blue-300);
-      --btn-txt-color: var(--white);
+    }
+    &.black {
+      --bg-color: var(--black);
     }
   }
   &.line-type {
@@ -92,6 +154,9 @@
 
     &.blue {
       --btn-txt-color: var(--blue-300);
+    }
+    &.black {
+      --btn-txt-color: var(--black);
     }
   }
 
