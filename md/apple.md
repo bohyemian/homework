@@ -1,5 +1,11 @@
 # apple 제품 카드 [바로가기](../apple/apple.html)🍎
 
+🏷️ **개요**
+1. [구조](#구조)
+   * [card 컴포넌트](#card-컴포넌트)
+   * [레이아웃](#레이아웃)
+2. [CSS 스타일링](#스타일링)
+3. [마치며](#마치며)
 
 ## 구조
 
@@ -30,18 +36,20 @@
 ### 레이아웃
 `card` 컴포넌트를 `grid-cards`로 감싸고 `display: grid` 그리드 컨테이너로 만들어 주었습니다.
 ```css
-grid-template-columns: [cell-span-start cell-odd-start] 1fr [cell-odd-end cell-even-start] 1fr [cell-even-end cell-span-end];
+.grid-cards {
+  grid-template-columns: [cell-span-start cell-odd-start] 1fr [cell-odd-end cell-even-start] 1fr [cell-even-end cell-span-end];
 
-.card {
-  @media (width >= 1024px) {
-    &.grid-item-odd {
-      grid-column: cell-odd;
-    }
+  .card {
+    @media (width >= 1024px) {
+      &.grid-item-odd {
+        grid-column: cell-odd;
+      }
 
-    &.grid-item-even {
-      grid-column: cell-even;
+      &.grid-item-even {
+        grid-column: cell-even;
+      }
+      ...
     }
-    ...
   }
 }
 ```
