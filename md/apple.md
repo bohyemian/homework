@@ -66,7 +66,7 @@
 >참고: 가능하다면 resolution표준 미디어 기능인 미디어 기능 쿼리를 대신 사용하세요.
 
 ## 결과화면
-<video src="https://github.com/user-attachments/assets/db8bf02d-b40e-4438-bcbf-ab71e7ec7ed9" width="600" height="320"></video>
+<video src="https://github.com/user-attachments/assets/db8bf02d-b40e-4438-bcbf-ab71e7ec7ed9" width="600" height="340" controls></video>
 
 ## 마치며
 picture로 넣을 때에는 다른 확장자의 이미지도 추가적으로 셋팅할 수 있었는데 미디어 쿼리로 작성하게 되면  
