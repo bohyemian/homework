@@ -5,7 +5,7 @@
 @import url(button-component.css);
 
 /* 카드 레이아웃 */
-.card-products {
+.grid-cards {
   display: grid;
   grid-template-columns: [cell-span-start cell-odd-start] 1fr [cell-odd-end cell-even-start] 1fr [cell-even-end cell-span-end];
   gap: var(--base-spacing);
@@ -34,7 +34,7 @@
     }
 
     /* producet background image */
-    @media (max-resolution: 1dppx) {
+    @media (max-resolution: 1x) {
       &.iPad-pro {
         --bg-image: url(../products/ipad_pro.jpeg);
       }
@@ -57,7 +57,7 @@
         --bg-image: url(../products/airpods_pro.jpeg);
       }
     }
-    @media (min-resolution: 2dppx) {
+    @media (min-resolution: 2x) {
       &.iPad-pro {
         --bg-image: url(../products/ipad_pro_2x.jpeg);
       }
