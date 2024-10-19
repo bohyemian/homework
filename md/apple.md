@@ -5,7 +5,8 @@
    * [card 컴포넌트](#card-컴포넌트)
    * [레이아웃](#레이아웃)
 2. [CSS 스타일링](#스타일링)
-3. [마치며](#마치며)
+3. [결과화면]()
+4. [마치며](#마치며)
 
 ## 구조
 
@@ -27,7 +28,7 @@
 `card` 컨테이너 안에 타이틀, 서브타이틀, 디스크립션, 버튼을 1열로 배치했습니다.
 
 서브타이틀은 모바일에서 줄바꿈 되었다가(모바일 퍼스트) width 1024px 이상부터 한 줄로 바뀌도록  
-각각 span태그로 감싸 `display: block` 이었다가 `inline-block` 속성 으로 바꿔 주었습니다.
+각각 span태그로 감싸 `display: block` 이었다가 `inline-block` 속성으로 바꿔 주었습니다.
 
 클래스명은 BEM 방식으로 지었고, 버튼은 카드 컴포넌트 아닌 곳에서도 재사용하도록 `card__`를 붙이지 않았습니다.
 
@@ -48,13 +49,13 @@
       &.grid-item-even {
         grid-column: cell-even;
       }
-      ...
     }
   }
 }
 ```
 2열을 차지하는 `card`에는 `grid-column: cell-span` 속성을 주고  
-`grid-item-odd`, `grid-item-even` 클래스로 각각 1열, 2열을 분기하여 background와 버튼의 스타일을 바꿔 주었습니다.
+`grid-item-odd`, `grid-item-even` 클래스로 각각 1열, 2열을 분기하여 color와 버튼의 스타일을 바꿔 주었습니다.
+
 
 ## 스타일링
 ### 픽셀의 밀도에 따른 이미지 분기
@@ -63,6 +64,9 @@
 
 처음에는 [-webkit-device-pixel-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-webkit-device-pixel-ratio) 를 찾게 되었는데 문서를 읽어보니 [`resolution`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution)를 대신 사용하라고 나와 있었습니다.
 >참고: 가능하다면 resolution표준 미디어 기능인 미디어 기능 쿼리를 대신 사용하세요.
+
+## 결과화면
+<video src="https://github.com/user-attachments/assets/db8bf02d-b40e-4438-bcbf-ab71e7ec7ed9" width="680" height="340" controls="false"></video>
 
 ## 마치며
 picture로 넣을 때에는 다른 확장자의 이미지도 추가적으로 셋팅할 수 있었는데 미디어 쿼리로 작성하게 되면  
