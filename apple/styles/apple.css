@@ -13,7 +13,26 @@
   .card {
     grid-column: cell-span;
 
+    &.iPad-pro {
+      --bg-image: image-set(url(../products/ipad_pro.jpeg) 1x, url(../products/ipad_pro_2x.jpeg) 2x);
+    }
+    &.iPad-air {
+      --bg-image: image-set(url(../products/ipad_air_wide.jpeg) 1x, url(../products/ipad_air_wide_2x.jpeg) 2x);
+    }
+    &.iPhone15pro {
+      --bg-image: image-set(url(../products/iphone15_pro_wide.jpeg) 1x, url(../products/iphone15_pro_wide_2x.jpeg) 2x);
+    }
+    &.iPhone15 {
+      --bg-image: image-set(url(../products/iphone15.jpeg) 1x, url(../products/iphone15_2x.jpeg) 2x);
+    }
+    &.watch {
+      --bg-image: image-set(url(../products/apple_watch.jpeg) 1x, url(../products/apple_watch_2x.jpeg) 2x);
+    }
+    &.macBook-air {
+      --bg-image: image-set(url(../products/macbook_air.jpeg) 1x, url(../products/macbook_air_2x.jpeg) 2x);
+    }
     &.airPods-pro {
+      --bg-image: image-set(url(../products/airpods_pro.jpeg) 1x, url(../products/airpods_pro.jpeg) 2x);
       background-position-y: 90%;
     }
 
@@ -30,54 +49,6 @@
         .btn.line-type {
           --bg-color: var(--white);
         }
-      }
-    }
-
-    /* producet background image */
-    @media (max-resolution: 1x) {
-      &.iPad-pro {
-        --bg-image: url(../products/ipad_pro.jpeg);
-      }
-      &.iPad-air {
-        --bg-image: url(../products/ipad_air_wide.jpeg);
-      }
-      &.iPhone15pro {
-        --bg-image: url(../products/iphone15_pro_wide.jpeg);
-      }
-      &.iPhone15 {
-        --bg-image: url(../products/iphone15.jpeg);
-      }
-      &.watch {
-        --bg-image: url(../products/apple_watch.jpeg);
-      }
-      &.macBook-air {
-        --bg-image: url(../products/macbook_air.jpeg);
-      }
-      &.airPods-pro {
-        --bg-image: url(../products/airpods_pro.jpeg);
-      }
-    }
-    @media (min-resolution: 2x) {
-      &.iPad-pro {
-        --bg-image: url(../products/ipad_pro_2x.jpeg);
-      }
-      &.iPad-air {
-      --bg-image: url(../products/ipad_air_wide_2x.jpeg);
-      }
-      &.iPhone15pro {
-        --bg-image: url(../products/iphone15_pro_wide_2x.jpeg);
-      }
-      &.iPhone15 {
-        --bg-image: url(../products/iphone15_2x.jpeg);
-      }
-      &.watch {
-        --bg-image: url(../products/apple_watch_2x.jpeg);
-      }
-      &.macBook-air {
-        --bg-image: url(../products/macbook_air_2x.jpeg);
-      }
-      &.airPods-pro {
-        --bg-image: url(../products/airpods_pro.jpeg);
       }
     }
   }
