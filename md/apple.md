@@ -59,8 +59,8 @@
 
 ## 스타일링
 ### 픽셀의 밀도에 따른 이미지 분기
-`picture` tag의 `srcset` 속성으로 밀도에 따라 리소스 이미지를 셋팅 했었던 것을 background로 구현하는 조건이는데,
-밀도에 따라 분기 해야 겠다는 생각에 미디어쿼리 중에 밀도에 따라 분기할 수 있는 조건이 있는지 찾아 보았습니다.
+`picture` tag의 `srcset` 속성으로 밀도에 따라 리소스 이미지를 셋팅 했었던 것을 background로 구현하는 조건이는데,  
+~~밀도에 따라 분기 해야 겠다는 생각에 미디어쿼리 중에 밀도에 따라 분기할 수 있는 조건이 있는지 찾아 보았습니다.~~
 
 처음에는 [-webkit-device-pixel-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-webkit-device-pixel-ratio) 를 찾게 되었는데 문서를 읽어보니 [`resolution`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution)를 대신 사용하라고 나와 있었습니다.
 >참고: 가능하다면 resolution표준 미디어 기능인 미디어 기능 쿼리를 대신 사용하세요.
