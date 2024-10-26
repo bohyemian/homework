@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 0.875rem;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      .header {
+        display: grid;
+        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-areas: "logo nav actions";
+        grid-template-areas:
+          "logo logo actions"
+          "nav nav nav";
+        gap: 0.5rem;
+        align-items: center;
+        padding: 1rem;
+        background: #ececec;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        grid-area: logo;
+        align-self: center;
+        justify-self: start;
+        gap: 0.5rem;
+        picture {
+          display: contents;
+        }
+        img {
+          height: 2.5rem;
+          block-size: 2.5rem;
+        }
+      }
+
+      .nav {
+        grid-area: nav;
+        background: #c8e65f;
+        border-radius: 2rem;
+
+        ul {
+          display: flex;
+          column-gap: 1.5rem;
+          padding: 0.5rem 1rem;
+          font-weight: 600;
+        }
+      }
+
+      .actions {
+        grid-area: actions;
+        justify-self: end;
+      }
+
+      button {
+        padding: 0.5rem 1rem;
+        background: rgb(49, 90, 201) 0;
+        border: 0;
+        font-size: 0.75rem;
+        color: #fff;
+        border-radius: 1rem;
+      }
+
+      @media (min-width: 540px) {
+        .header {
+          grid-template-areas:
+            "logo logo logo"
+            "nav nav actions";
+        }
+        .logo {
+          justify-self: center;
+        }
+        .nav {
+          justify-self: start;
+        }
+      }
+      @media (min-width: 768px) {
+        .header {
+          grid-template-areas:
+            "logo nav nav"
+            "logo actions actions";
+        }
+        .logo {
+          justify-self: normal;
+        }
+        .nav {
+          justify-self: end;
+        }
+      }
+      @media (min-width: 1024px) {
+        body {
+          font-size: 100%;
+        }
+        .header {
+          grid-template-areas: "logo nav actions";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="logo">
+        <picture>
+          <img src="https://bohyemian.github.io/html-css/src/assets/logo/react.svg" alt="" />
+        </picture>
+        <strong>REACT</strong>
+      </h1>
+
+      <nav class="nav">
+        <ul>
+          <li>Home</li>
+          <li>Articles</li>
+          <li>Work</li>
+          <li>Users</li>
+          <li>Products</li>
+          <li>Etc</li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button type="button">My account</button>
+      </div>
+    </header>
+  </body>
+</html>
