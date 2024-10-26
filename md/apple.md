@@ -65,6 +65,9 @@
 처음에는 [-webkit-device-pixel-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/-webkit-device-pixel-ratio) 를 찾게 되었는데 문서를 읽어보니 [`resolution`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/resolution)를 대신 사용하라고 나와 있었습니다.
 >참고: 가능하다면 resolution표준 미디어 기능인 미디어 기능 쿼리를 대신 사용하세요.
 
+#### 피드백 후
+밀도에 따른 이미지 분기는 background image-set 속성으로 수정했습니다. ✨
+
 ## 결과화면
 <video src="https://github.com/user-attachments/assets/db8bf02d-b40e-4438-bcbf-ab71e7ec7ed9" width="600" height="340" controls></video>
 
