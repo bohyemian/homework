@@ -9,17 +9,76 @@
         margin: 0;
         padding: 0;
       }
+
       body {
         font-size: 0.875rem;
+
+        @media (min-width: 1024px) {
+          font-size: 100%;
+        }
       }
+
       ul,
       li {
         list-style: none;
       }
+
+      h2 {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        display: inline-block;
+        padding-top: 2rem;
+      }
+
+      table {
+        width: 20rem;
+
+        col {
+          width: 33.33%;
+        }
+      }
+
+      table,
+      td {
+        border: 1px solid;
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+
+      td {
+        padding: 0.5rem 1rem;
+        text-align: center;
+
+        &.logo {
+          background: #cfcfcf;
+        }
+        &.nav {
+          background: #c8e65f;
+        }
+        &.actions {
+          background: rgb(49, 90, 201) 0;
+          color: #fff;
+          border-color: #000;
+        }
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        border: 0;
+        clip: rect(0 0 0 0);
+      }
+
       .header {
         display: grid;
-        grid-template-columns: 2fr 1fr 2fr;
-        grid-template-areas: "logo nav actions";
+        grid-template-columns: 1fr 1fr 1fr;
         grid-template-areas:
           "logo logo actions"
           "nav nav nav";
@@ -27,40 +86,66 @@
         align-items: center;
         padding: 1rem;
         background: #ececec;
-      }
 
-      .logo {
-        display: flex;
-        align-items: center;
-        grid-area: logo;
-        align-self: center;
-        justify-self: start;
-        gap: 0.5rem;
-        picture {
-          display: contents;
-        }
-        img {
-          height: 2.5rem;
-          block-size: 2.5rem;
-        }
-      }
-
-      .nav {
-        grid-area: nav;
-        background: #c8e65f;
-        border-radius: 2rem;
-
-        ul {
+        .logo {
           display: flex;
-          column-gap: 1.5rem;
-          padding: 0.5rem 1rem;
-          font-weight: 600;
+          align-items: center;
+          grid-area: logo;
+          align-self: center;
+          justify-self: start;
+          gap: 0.5rem;
+          picture {
+            display: contents;
+          }
+          img {
+            height: 2.5rem;
+            block-size: 2.5rem;
+          }
         }
-      }
 
-      .actions {
-        grid-area: actions;
-        justify-self: end;
+        .nav {
+          grid-area: nav;
+          background: #c8e65f;
+          border-radius: 2rem;
+
+          ul {
+            display: flex;
+            column-gap: 1.5rem;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+          }
+        }
+
+        .actions {
+          grid-area: actions;
+          justify-self: end;
+        }
+
+        @media (min-width: 540px) {
+          grid-template-areas:
+            "logo logo logo"
+            "nav nav actions";
+          .logo {
+            justify-self: center;
+          }
+          .nav {
+            justify-self: start;
+          }
+        }
+        @media (min-width: 768px) {
+          grid-template-areas:
+            "logo nav nav"
+            "logo actions actions";
+          .logo {
+            justify-self: normal;
+          }
+          .nav {
+            justify-self: end;
+          }
+        }
+        @media (min-width: 1024px) {
+          grid-template-areas: "logo nav actions";
+        }
       }
 
       button {
@@ -72,38 +157,44 @@
         border-radius: 1rem;
       }
 
+      .contents {
+        max-inline-size: 500px;
+        margin: auto;
+        padding: 3rem 1rem 0;
+      }
+
+      [class*="block-size-"] {
+        display: none;
+      }
+
+      .block-size-base {
+        display: block;
+      }
+
       @media (min-width: 540px) {
-        .header {
-          grid-template-areas:
-            "logo logo logo"
-            "nav nav actions";
+        [class*="block-size-"] {
+          display: none;
         }
-        .logo {
-          justify-self: center;
-        }
-        .nav {
-          justify-self: start;
+        .block-size-540 {
+          display: block;
         }
       }
+
       @media (min-width: 768px) {
-        .header {
-          grid-template-areas:
-            "logo nav nav"
-            "logo actions actions";
+        [class*="block-size-"] {
+          display: none;
         }
-        .logo {
-          justify-self: normal;
-        }
-        .nav {
-          justify-self: end;
+        .block-size-768 {
+          display: block;
         }
       }
+
       @media (min-width: 1024px) {
-        body {
-          font-size: 100%;
+        [class*="block-size-"] {
+          display: none;
         }
-        .header {
-          grid-template-areas: "logo nav actions";
+        .block-size-1024 {
+          display: block;
         }
       }
     </style>
@@ -131,5 +222,83 @@
         <button type="button">My account</button>
       </div>
     </header>
+    <div class="contents">
+      <div class="block-size-base">
+        <h2>grid-template-areas</h2>
+        <table>
+          <col />
+          <col />
+          <col />
+          <tbody>
+            <tr>
+              <td class="logo">"logo</td>
+              <td class="logo">logo</td>
+              <td class="actions">actions"</td>
+            </tr>
+            <tr>
+              <td class="nav">"nav</td>
+              <td class="nav">nav</td>
+              <td class="nav">nav"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="block-size-540">
+        <h2>grid-template-areas</h2>
+        <table>
+          <col />
+          <col />
+          <col />
+          <tbody>
+            <tr>
+              <td class="logo">"logo</td>
+              <td class="logo">logo</td>
+              <td class="logo">logo"</td>
+            </tr>
+            <tr>
+              <td class="nav">"nav</td>
+              <td class="nav">nav</td>
+              <td class="actions">actions"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="block-size-768">
+        <h2>grid-template-areas</h2>
+        <table>
+          <col />
+          <col />
+          <col />
+          <tbody>
+            <tr>
+              <td class="logo">"logo</td>
+              <td class="nav">nav</td>
+              <td class="nav">nav"</td>
+            </tr>
+            <tr>
+              <td class="logo">"logo</td>
+              <td class="actions">actions</td>
+              <td class="actions">actions"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="block-size-1024">
+        <h2>grid-template-areas</h2>
+        <table>
+          <col />
+          <col />
+          <col />
+          <tbody>
+            <tr>
+              <td class="logo">"logo</td>
+              <td class="nav">nav</td>
+              <td class="actions">actions"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <a href="https://ishadeed.com/article/css-grid-area/" target="_blank">https://ishadeed.com/article/css-grid-area/</a>
+    </div>
   </body>
 </html>
