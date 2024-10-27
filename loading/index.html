@@ -3,119 +3,153 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>loading animation</title>
+    <title>Document</title>
     <style>
       body {
-        background: rgb(230, 230, 230) 0;
+        display: grid;
+        height: 100vh;
+        row-gap: 40px;
+        place-content: center;
+        place-items: center;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        font-family: "Montserrat";
+        font-size: 12pt;
+        margin: 0;
       }
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip-path: inset(50%);
-        border: 0;
-        clip: rect(0 0 0 0);
-      }
-      .loading {
-        --animation-duration: 3s;
-        position: absolute;
-        inset: 50% auto auto 50%;
-        width: 30rem;
-        inline-size: 480px;
-        padding: 2rem 2rem 3.5rem;
-        background-color: #fff;
-        translate: -50% -50%;
-        filter: drop-shadow(0 0 8px #cccccc);
-        border-radius: 1rem;
 
-        &:before {
-          display: block;
-          padding-bottom: 0.5rem;
-          text-align: center;
-          font-size: 1.2rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          animation: var(--animation-duration) linear count-text;
-          animation-fill-mode: forwards;
-          content: var(--loading-text);
-        }
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0;
       }
-      .loading__bar {
-        display: block;
-        position: relative;
-        width: 100%;
-        inline-size: 100%;
-        height: 0.75rem;
-        block-size: 0.75rem;
-        margin-top: 0.5rem;
-        margin-block-start: 0.5rem;
-        background: #dadada;
-        border-radius: 0.75rem;
 
-        &:before {
-          position: absolute;
-          inset-block-start: calc(100% + 0.25rem);
-          inset-inline-end: 0;
-          animation: var(--animation-duration) linear count;
-          animation-fill-mode: forwards;
-          counter-reset: n calc(0 + var(--n));
-          content: counter(n) "%";
-        }
-        &:after {
-          position: absolute;
-          inset-inline-start: 0;
-          inset-block-start: 0;
-          /* width: 0;
-          inline-size: 0; */
-          height: 100%;
-          block-size: 100%;
-          background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-          animation: var(--animation-duration) linear count-width;
-          animation-fill-mode: forwards;
-          border-radius: inherit;
+      section.countdown {
+        visibility: hidden;
+        text-align: center;
+        .timer::after {
+          display: inline;
           content: "";
         }
+        .bar {
+          margin-top: 30px;
+          width: 400px;
+          height: 6px;
+          position: relative;
+          background: white;
+          > * {
+            width: inherit;
+            height: inherit;
+            position: absolute;
+          }
+          .bar-dashes {
+            display: flex;
+            place-content: space-between;
+            i {
+              width: 100%;
+              background: #eee;
+              border-radius: 4px;
+            }
+          }
+          .bar-bg {
+            transform: scaleX(0);
+            background: linear-gradient(to right, rgb(176 78 222), rgb(31 78 165), rgb(6 24 241));
+            mix-blend-mode: color-burn;
+          }
+        }
       }
-      @layer count {
-        @property --n {
-          syntax: "<integer>";
-          inherits: false;
-          initial-value: 100;
+
+      section.download {
+        a {
+          display: block;
+          width: 400px;
+          text-align: center;
+          transform: scale(0);
+          background: rgb(30, 75, 217);
+          border-radius: 5px;
+          color: white;
+          text-decoration: none;
+          padding-block: 8px;
         }
-        @keyframes count-text {
-          from {
-            --loading-text: "loading";
-          }
-          to {
-            --loading-text: "complate!";
+      }
+
+      section.buttons {
+        display: flex;
+        column-gap: 40px;
+        input {
+          display: none;
+        }
+        label {
+          display: inline-block;
+          text-align: center;
+          cursor: pointer;
+          width: 100px;
+          line-height: 30px;
+          height: 1lh;
+          background: rgb(30, 75, 217);
+          border-radius: 5px;
+          color: white;
+          &:has(:checked) {
+            background: #bbb;
           }
         }
-        @keyframes count {
-          from {
-            --n: 0;
+      }
+
+      @property --n {
+        syntax: "<integer>";
+        inherits: false;
+        initial-value: 0;
+      }
+      @keyframes count {
+        from {
+          --n: 5;
+        }
+        to {
+          --n: 0;
+        }
+      }
+
+      :has(#print:checked) {
+        --time: 5s;
+        section.countdown {
+          visibility: visible;
+          .timer::after {
+            animation: var(--time) linear count;
+            animation-fill-mode: forwards;
+            counter-reset: n calc(0 + var(--n));
+            content: counter(n);
           }
-          to {
-            --n: 100;
+          .bar-bg {
+            transform: scaleX(1);
+            transition: transform var(--time);
+            transform-origin: left;
           }
         }
-        @keyframes count-width {
-          from {
-            width: 0;
-          }
-          to {
-            width: 100%;
-          }
+        section.download a {
+          transform: scale(1);
+          transition: transform 0.3s var(--time);
         }
       }
     </style>
   </head>
   <body>
-    <div class="loading">
-      <!-- <span>loading</span> -->
-      <span class="loading__bar"></span>
-    </div>
+    <h1>Demo for CSS Timer</h1>
+
+    <section class="buttons">
+      <label><input id="print" type="radio" name="buttons" />Download</label>
+      <label><input type="radio" name="buttons" checked />Reset</label>
+    </section>
+
+    <section class="countdown">
+      <strong>You can download in <span class="timer"></span> seconds</strong>
+      <div class="bar">
+        <div class="bar-dashes"><i></i></div>
+        <div class="bar-bg"></div>
+      </div>
+    </section>
+
+    <section class="download">
+      <a href="#">Nothing.pdf is ready for download</a>
+    </section>
   </body>
 </html>
